@@ -1,0 +1,19 @@
+{
+    "chain_name": "mythos",
+    "coingecko": "",
+    "api": ["https://mythos.provable.dev/rest"],
+    "rpc": ["https://mythos-rpc.provable.dev:443"],
+    "snapshot_provider": "",
+    "sdk_version": "0.45.4",
+    "coin_type": "60",
+    "min_tx_fee": "3000000000000000",
+    "addr_prefix": "mythos",
+    "logo": "/logos/mythos.png",
+    "assets": [{
+        "base": "aMYT",
+        "symbol": "MYT",
+        "exponent": "18",
+        "coingecko_id": "",
+        "logo": "/logos/mythos.png"
+    }]
+}

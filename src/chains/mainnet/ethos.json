@@ -1,0 +1,19 @@
+{
+    "chain_name": "ethos",
+    "coingecko": "",
+    "api": ["https://ethos.provable.dev/rest"],
+    "rpc": ["https://ethos-rpc.provable.dev:443"],
+    "snapshot_provider": "",
+    "sdk_version": "0.45.4",
+    "coin_type": "60",
+    "min_tx_fee": "3000000000000000",
+    "addr_prefix": "ethos",
+    "logo": "/logos/ethos.png",
+    "assets": [{
+        "base": "aRYT",
+        "symbol": "RYT",
+        "exponent": "18",
+        "coingecko_id": "",
+        "logo": "/logos/ethos.png"
+    }]
+}
