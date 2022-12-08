@@ -490,7 +490,7 @@ export default {
           {
             coinDenom: chain.assets[0].symbol,
             coinMinimalDenom: chain.assets[0].base,
-            coinDecimals: chain.assets[0].exponent,
+            coinDecimals: parseInt(chain.assets[0].exponent),
             coinGeckoId: chain.assets[0].coingecko_id || 'unknown',
           },
         ],
@@ -498,7 +498,7 @@ export default {
           {
             coinDenom: chain.assets[0].symbol,
             coinMinimalDenom: chain.assets[0].base,
-            coinDecimals: chain.assets[0].exponent,
+            coinDecimals: parseInt(chain.assets[0].exponent),
             coinGeckoId: chain.assets[0].coingecko_id || 'unknown',
             gasPriceStep,
           },
@@ -507,7 +507,7 @@ export default {
         stakeCurrency: {
           coinDenom: chain.assets[0].symbol,
           coinMinimalDenom: chain.assets[0].base,
-          coinDecimals: chain.assets[0].exponent,
+          coinDecimals: parseInt(chain.assets[0].exponent),
           coinGeckoId: chain.assets[0].coingecko_id || 'unknown',
         },
         features: chain.keplr_features || [],
