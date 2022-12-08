@@ -477,7 +477,7 @@ export default {
         bip44: {
           coinType: parseInt(chain.coin_type, 10),
         },
-        coinType: chain.coin_type,
+        coinType: parseInt(chain.coin_type, 10),
         bech32Config: {
           bech32PrefixAccAddr: chain.addr_prefix,
           bech32PrefixAccPub: `${chain.addr_prefix}pub`,
