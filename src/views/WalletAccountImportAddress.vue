@@ -475,7 +475,7 @@ export default {
         rpc: Array.isArray(chain.rpc) ? chain.rpc[0] : chain.rpc,
         rest: Array.isArray(chain.api) ? chain.api[0] : chain.api,
         bip44: {
-          coinType: chain.coin_type,
+          coinType: parseInt(chain.coin_type, 10),
         },
         coinType: chain.coin_type,
         bech32Config: {
