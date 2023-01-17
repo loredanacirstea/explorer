@@ -137,7 +137,7 @@ export default {
       }
 
       if (!getCachedValidators()) {
-        this.$http.getValidatorList()
+        this.$http.getValidatorList(null, true)
       }
 
       let promise = Promise.resolve()

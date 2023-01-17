@@ -208,11 +208,9 @@ export default {
   },
   methods: {
     loadData() {
-      this.$http.getValidatorList().then(v => {
-        this.validators = v
-      })
-      this.$http.getValidatorUnbondedList().then(v => {
-        this.unbundValidators = v
+      this.$http.getValidatorList(null, true).then(v => {
+        this.validators = v.filter(val => val.status === 'BOND_STATUS_BONDED')
+        this.unbundValidators = v.filter(val => val.status === 'BOND_STATUS_UNBONDED')
       })
       this.$http.getStakingDelegations(this.address).then(res => {
         this.delegations = res.delegation_responses

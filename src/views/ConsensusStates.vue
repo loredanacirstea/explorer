@@ -246,8 +246,8 @@ export default {
     validators() {
       const conf = this.chains[this.selected]
       let vals = []
-      this.$http.getValidatorList(conf).then(data => {
-        vals = data
+      this.$http.getValidatorList(conf, true).then(data => {
+        vals = data.filter(v => v.status === 'BOND_STATUS_BONDED')
       }).catch(() => {
         vals = getCachedValidators(this.selected.chain_name) || []
       }).finally(() => {

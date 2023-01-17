@@ -287,8 +287,8 @@ export default {
       this.validators = cached
     }
     this.fetchMissingInfo()
-    this.$http.getValidatorList().then(res => {
-      this.validators = res
+    this.$http.getValidatorList(null, true).then(res => {
+      this.validators = res.filter(v => v.status === 'BOND_STATUS_BONDED')
     })
 
     this.initBlocks()
