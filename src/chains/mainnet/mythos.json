@@ -2,10 +2,10 @@
     "chain_name": "Mythos-Testnet",
     "coingecko": "",
     "api": [
-        "https://mythos-api.gorynich.ml:1317"
+        "https://mythos-api.gorynich.ml:31317"
     ],
     "rpc": [
-        "https://mythos-rpc.gorynich.ml:26657"
+        "https://mythos-rpc.gorynich.ml:36657"
     ],
     "snapshot_provider": "",
     "sdk_version": "0.45.11",
