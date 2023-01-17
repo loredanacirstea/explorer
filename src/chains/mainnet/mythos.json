@@ -2,24 +2,24 @@
     "chain_name": "Mythos-Testnet",
     "coingecko": "",
     "api": [
-        "http://gorynich.ml:1317"
+        "https://mythos-api.gorynich.ml:1317"
     ],
     "rpc": [
-        "http://gorynich.ml:26657"
+        "https://mythos-rpc.gorynich.ml:26657"
     ],
     "snapshot_provider": "",
     "sdk_version": "0.45.11",
     "coin_type": "118",
     "min_tx_fee": "1250",
     "addr_prefix": "mythos",
-    "logo": "/logos/cosmos.svg",
+    "logo": "/logos/mythos.png",
     "assets": [
         {
             "base": "amyt",
             "symbol": "MYT",
             "exponent": "6",
-            "coingecko_id": "mythos",
-            "logo": "/logos/cosmos.svg"
+            "coingecko_id": "",
+            "logo": "/logos/mythos.png"
         }
     ]
 }
