@@ -186,8 +186,14 @@ export default class ChainFetch {
   }
 
   async getValidatorList(config = null) {
-    return this.get('/cosmos/staking/v1beta1/validators?pagination.limit=200&status=BOND_STATUS_BONDED', config, true).then(data => {
-      const vals = commonProcess(data.validators).map(i => new Validator().init(i))
+    return this.get('/cosmos/staking/v1beta1/validators?pagination.limit=200&status=BOND_STATUS_BONDED', config, true).then(async data => {
+      let vals
+      if (data.validators) {
+        vals = commonProcess(data.validators).map(i => new Validator().init(i))
+      } else if (this.config.chain_name === 'mythos') {
+        const mdata = await this.get('/mythos/poe/v1beta1/validators', config, true)
+        vals = commonProcess(mdata.validators.filter(info => info.status === 'BOND_STATUS_BONDED')).map(i => new Validator().init(i))
+      }
       try {
         localStorage.setItem(`validators-${this.config.chain_name}`, JSON.stringify(vals))
       } catch (err) {
@@ -206,6 +212,14 @@ export default class ChainFetch {
   }
 
   async getValidatorUnbondedList() {
+    if (this.config.chain_name === 'mythos') {
+      return this.get('/mythos/poe/v1beta1/validators', null, true).then(data => {
+        const result = commonProcess(data.validators.filter(info => info.status === 'BOND_STATUS_UNBONDED')).map(i => new Validator().init(i))
+        const vals = result.validators ? result.validators : result
+        return vals.map(i => new Validator().init(i))
+      })
+    }
+
     return this.get('/cosmos/staking/v1beta1/validators?pagination.limit=100&status=BOND_STATUS_UNBONDED', null, true).then(data => {
       const result = commonProcess(data.validators)
       const vals = result.validators ? result.validators : result
