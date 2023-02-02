@@ -77,10 +77,10 @@ export default {
           })
           chainVals[x] = validators
         } else {
-          this.$http.getValidatorList(configs[x]).then((vals => {
+          this.$http.getValidatorList(configs[x], true).then((vals => {
             const validators = []
             pinned[x].forEach(address => {
-              const val = vals.find(v => address === this.hex2base64(consensusPubkeyToHexAddress(v.consensus_pubkey)))
+              const val = vals.find(v => v.status === 'BOND_STATUS_BONDED' && address === this.hex2base64(consensusPubkeyToHexAddress(v.consensus_pubkey)))
               if (val) validators.push({ address, validator: val.description })
             })
             this.$set(this.chainVals, x, validators)

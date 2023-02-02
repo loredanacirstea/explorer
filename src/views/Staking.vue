@@ -377,9 +377,9 @@ export default {
   },
   methods: {
     initial() {
-      this.$http.getValidatorList().then(res => {
+      this.$http.getValidatorList(null, true).then(res => {
         const identities = []
-        const temp = res
+        const temp = res.filter(v => v.status === 'BOND_STATUS_BONDED')
         for (let i = 0; i < temp.length; i += 1) {
           const { identity } = temp[i].description
           const url = this.$store.getters['chains/getAvatarById'](identity)
@@ -432,9 +432,10 @@ export default {
       if (this.isInactiveLoaded) return
       const statusList = ['BOND_STATUS_UNBONDED', 'BOND_STATUS_UNBONDING']
       statusList.forEach(status => {
-        this.$http.getValidatorListByStatus(status).then(res => {
+        this.$http.getValidatorList(null, true).then(res => {
           const identities = []
-          const temp = res
+          const filtered = res.filter(v => v.status === status)
+          const temp = filtered
           for (let i = 0; i < temp.length; i += 1) {
             const { identity } = temp[i].description
             const url = this.$store.getters['chains/getAvatarById'](identity)
@@ -452,7 +453,7 @@ export default {
               this.avatar(item, resolve)
             }))
           })
-          this.inactiveValidators = this.inactiveValidators.concat(res)
+          this.inactiveValidators = this.inactiveValidators.concat(filtered)
         })
       })
       this.isInactiveLoaded = true

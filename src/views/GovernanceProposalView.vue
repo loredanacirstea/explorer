@@ -411,7 +411,7 @@ export default {
     })
 
     if (!getCachedValidators()) {
-      this.$http.getValidatorList()
+      this.$http.getValidatorList(null, true)
     }
     // this.$http.getGovernanceProposer(pid).then(res => {
     //   this.proposer = res

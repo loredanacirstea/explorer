@@ -185,8 +185,11 @@ export default class ChainFetch {
     })
   }
 
-  async getValidatorList(config = null) {
-    return this.get('/cosmos/staking/v1beta1/validators?pagination.limit=200&status=BOND_STATUS_BONDED', config, true).then(data => {
+  async getValidatorList(config = null, all = false) {
+    const url = all
+      ? '/cosmos/staking/v1beta1/validators?pagination.limit=200'
+      : '/cosmos/staking/v1beta1/validators?pagination.limit=200&status=BOND_STATUS_BONDED'
+    return this.get(url, config, true).then(data => {
       const vals = commonProcess(data.validators).map(i => new Validator().init(i))
       try {
         localStorage.setItem(`validators-${this.config.chain_name}`, JSON.stringify(vals))
