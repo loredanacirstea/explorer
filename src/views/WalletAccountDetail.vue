@@ -641,7 +641,9 @@ export default {
               address: e.delegation.validator_address,
             },
             token: formatToken(e.balance, {}, decimal),
-            reward: tokenFormatter(reward.reward, this.denoms),
+            // TODO: Fix for Mythos
+            // reward: tokenFormatter(reward.reward, this.denoms),
+            reward: 0,
             action: e.delegation.validator_address,
           })
         })
