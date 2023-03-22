@@ -1,18 +1,18 @@
 {
     "chain_name": "mythos",
     "coingecko": "",
-    "api": ["https://mythos.provable.dev/rest"],
-    "rpc": ["https://mythos-rpc.provable.dev:443"],
+    "api": ["https://mythos-testnet.provable.dev/rest"],
+    "rpc": ["https://mythos-testnet-rpc.provable.dev"],
     "snapshot_provider": "",
-    "sdk_version": "0.45.4",
+    "sdk_version": "0.46.7",
     "coin_type": "118",
-    "min_tx_fee": "0.05",
+    "min_tx_fee": "100000",
     "addr_prefix": "mythos",
     "logo": "/logos/mythos.png",
     "assets": [{
         "base": "amyt",
         "symbol": "myt",
-        "exponent": "6",
+        "exponent": "18",
         "coingecko_id": "",
         "logo": "/logos/mythos.png"
     }]
