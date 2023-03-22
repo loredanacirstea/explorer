@@ -240,8 +240,9 @@ function getHdPath(address) {
 }
 
 function isEvmosBasedChain(chainId) {
-  const re = /[_]{1}[\d]{4}[\\-]{1}[\d]+$/g
-  return re.test(chainId)
+  // const re = /[_]{1}[\d]{4}[\\-]{1}[\d]+$/g
+  // return re.test(chainId)
+  return false
 }
 
 export async function sign(device, chainId, signerAddress, messages, fee, memo, signerData) {
