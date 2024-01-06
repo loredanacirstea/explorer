@@ -1,8 +1,8 @@
 {
     "chain_name": "mythos",
     "coingecko": "",
-    "api": ["http://localhost:1317"],
-    "rpc": ["http://localhost:26657"],
+    "api": ["https://mythos-testnet.provable.dev/rest"],
+    "rpc": ["https://mythos-testnet-rpc.provable.dev"],
     "snapshot_provider": "",
     "sdk_version": "0.46.7",
     "coin_type": "118",
