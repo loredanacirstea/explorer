@@ -73,41 +73,41 @@ export const DEFAULT: RequestRegistry = {
     adapter,
   },
   staking_deletations: {
-    url: '/cosmos/staking/v1beta1/delegations/{delegator_addr}',
+    url: '/tgrade/poe/v1beta1/delegations/{delegator_addr}',
     adapter,
   },
   staking_delegator_redelegations: {
-    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/redelegations',
+    url: '/tgrade/poe/v1beta1/delegators/{delegator_addr}/redelegations',
     adapter,
   },
   staking_delegator_unbonding_delegations: {
-    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/unbonding_delegations',
+    url: '/tgrade/poe/v1beta1/delegators/{delegator_addr}/unbonding_delegations',
     adapter,
   },
   staking_delegator_validators: {
-    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/validators',
+    url: '/tgrade/poe/v1beta1/delegators/{delegator_addr}/validators',
     adapter,
   },
-  staking_params: { url: '/cosmos/staking/v1beta1/params', adapter },
-  staking_pool: { url: '/cosmos/staking/v1beta1/pool', adapter },
+  staking_params: { url: '/tgrade/poe/v1beta1/params', adapter },
+  staking_pool: { url: '/tgrade/poe/v1beta1/pool', adapter },
   staking_validators: {
-    url: '/cosmos/staking/v1beta1/validators?pagination.limit={limit}&status={status}',
+    url: `/tgrade/poe/v1beta1/validators?pagination.limit={limit}`,
     adapter,
   },
   staking_validators_address: {
-    url: '/cosmos/staking/v1beta1/validators/{validator_addr}',
+    url: '/tgrade/poe/v1beta1/validators/{validator_addr}',
     adapter,
   },
   staking_validators_delegations: {
-    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations',
+    url: '/tgrade/poe/v1beta1/validators/{validator_addr}/delegations',
     adapter,
   },
   staking_validators_delegations_delegator: {
-    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}',
+    url: '/tgrade/poe/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}',
     adapter,
   },
   staking_validators_delegations_unbonding_delegations: {
-    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation',
+    url: '/tgrade/poe/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation',
     adapter,
   },
   base_tendermint_abci_query: {

@@ -40,7 +40,7 @@ function registeCustomRequest() {
     }
   });
 }
-    
+
 registeCustomRequest()
 
 export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
@@ -49,7 +49,7 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
   }
 
   static newStrategy(endpoint: string, chain: any) {
-    
+
     let req
     if(chain) {
       // find by name first
@@ -81,7 +81,7 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
   async getBankDenomMetadata() {
     return this.request(this.registry.bank_denoms_metadata, {});
   }
-  async getBankSupply(page?: PageRequest) {    
+  async getBankSupply(page?: PageRequest) {
     if(!page) page = new PageRequest()
     const query =`?${page.toQueryString()}`;
     return this.request(this.registry.bank_supply, {}, query);
@@ -210,7 +210,11 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
     return this.request(this.registry.staking_pool, {});
   }
   async getStakingValidators(status: string, limit = 200) {
-    return this.request(this.registry.staking_validators, { status, limit });
+    return this.request(this.registry.staking_validators, { status, limit })
+    .then((data: any) => {
+      const validators = data.validators.filter((info: any) => info.status === status)
+      return {...data, validators: validators}
+    });
   }
   async getStakingValidator(validator_addr: string) {
     return this.request(this.registry.staking_validators_address, {
@@ -223,7 +227,7 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
       // page.reverse = true
       page.count_total = true
       page.offset = 0
-    } 
+    }
     const query =`?${page.toQueryString()}`;
     return this.request(this.registry.staking_validators_delegations, {
       validator_addr,
@@ -282,7 +286,7 @@ export class CosmosRestClient extends BaseRestClient<RequestRegistry> {
   // query ibc receiving msgs
   // ?&pagination.reverse=true&events=recv_packet.packet_dst_channel='${channel}'&events=recv_packet.packet_dst_port='${port}'
   async getTxs(query: string, params: any, page?: PageRequest) {
-    if(!page) page = new PageRequest()    
+    if(!page) page = new PageRequest()
     return this.request(this.registry.tx_txs, params, `${query}&${page.toQueryString()}`);
   }
   async getTxsAt(height: string | number) {
