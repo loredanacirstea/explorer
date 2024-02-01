@@ -67,7 +67,7 @@ export const useStakingStore = defineStore('stakingStore', {
     },
     async fetchInacitveValdiators() {
       return this.fetchValidators('BOND_STATUS_UNBONDED');
-    },    
+    },
     async fetchUnbondingValdiators() {
       return this.fetchValidators('BOND_STATUS_UNBONDING');
     },
@@ -139,7 +139,7 @@ export const useStakingStore = defineStore('stakingStore', {
           // provider validators
           const res = await client.getStakingValidators(status)
           const proVals = res.validators.sort(
-            (a, b) => Number(b.delegator_shares) - Number(a.delegator_shares)
+            (a: any, b: any) => Number(b.delegator_shares) - Number(a.delegator_shares)
           )
           if (status === 'BOND_STATUS_BONDED') {
             this.validators = proVals;
@@ -150,7 +150,7 @@ export const useStakingStore = defineStore('stakingStore', {
       }
       return this.blockchain.rpc?.getStakingValidators(status).then((res) => {
         const vals = res.validators.sort(
-          (a, b) => Number(b.delegator_shares) - Number(a.delegator_shares)
+          (a: any, b: any) => Number(b.delegator_shares) - Number(a.delegator_shares)
         );
         if (status === 'BOND_STATUS_BONDED') {
           this.validators = vals;
