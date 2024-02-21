@@ -4,7 +4,7 @@
     "api": ["https://mythos-testnet.provable.dev/rest"],
     "rpc": ["https://mythos-testnet-rpc.provable.dev"],
     "snapshot_provider": "",
-    "sdk_version": "0.46.7",
+    "sdk_version": "0.50.1",
     "coin_type": "118",
     "min_tx_fee": "10000000",
     "keplr_price_step": {
