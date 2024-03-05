@@ -137,6 +137,7 @@ const upgradeCountdown = computed((): number => {
 
 const total = computed(() => {
   const tally = proposal.value.final_tally_result;
+  console.log("tally", tally)
   let sum = 0;
   if (tally) {
     sum += Number(tally.abstain || 0);
@@ -144,12 +145,15 @@ const total = computed(() => {
     sum += Number(tally.no || 0);
     sum += Number(tally.no_with_veto || 0);
   }
+  console.log("sum", sum)
   return sum;
 });
 
 const turnout = computed(() => {
   if (total.value > 0) {
     const bonded = stakingStore.pool?.bonded_tokens || '1';
+    console.log("pool", stakingStore.pool)
+    console.log("bonded", bonded)
     return format.percent(total.value / Number(bonded));
   }
   return 0;
@@ -187,6 +191,8 @@ const abstain = computed(() => {
   return 0;
 });
 const processList = computed(() => {
+  console.log("--turnout--", turnout.value)
+  console.log("--opts--", yes.value, no.value, abstain.value, veto.value)
   return [
     { name: 'Turnout', value: turnout.value, class: 'bg-info' },
     { name: 'Yes', value: yes.value, class: 'bg-success' },

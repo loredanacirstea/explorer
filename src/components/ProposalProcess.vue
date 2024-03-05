@@ -14,10 +14,12 @@ const props = defineProps({
   },
 });
 const total = computed(() => props.pool?.bonded_tokens);
+console.log("--total--", total.value)
 const format = useFormatter();
 const yes = computed(() =>
   format.calculatePercent(props.tally?.yes, total.value)
 );
+console.log("--yes--", yes.value)
 const no = computed(() =>
   format.calculatePercent(props.tally?.no, total.value)
 );
