@@ -42,7 +42,7 @@ store.fetchProposal(props.proposal_id).then((res) => {
   proposal.value = proposalDetail;
   // load origin params if the proposal is param change
   if(proposalDetail.content?.changes) {
-    proposalDetail.content?.changes.forEach((item) => {  
+    proposalDetail.content?.changes.forEach((item) => {
         chainStore.rpc.getParams(item.subspace, item.key).then((res) => {
           if(proposal.value.content && res.param) {
             if(proposal.value.content.current){

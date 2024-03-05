@@ -1,0 +1,28 @@
+{
+    "chain_name": "mythos",
+    "coingecko": "",
+    "api": [
+        {"provider": "mythos", "address": "http://localhost:1317"}
+    ],
+    "rpc": [
+        {"provider": "mythos", "address": "http://localhost:26657"}
+    ],
+    "snapshot_provider": "",
+    "sdk_version": "0.50.1",
+    "coin_type": "118",
+    "min_tx_fee": "10000000",
+    "keplr_price_step": {
+        "low": 1000,
+        "average": 1000,
+        "high": 10000
+    },
+    "addr_prefix": "mythos",
+    "logo": "/logos/mythos.png",
+    "assets": [{
+        "base": "amyt",
+        "symbol": "myt",
+        "exponent": "18",
+        "coingecko_id": "",
+        "logo": "/logos/mythos.png"
+    }]
+}
