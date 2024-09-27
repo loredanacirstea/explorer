@@ -1,0 +1,28 @@
+{
+    "chain_name": "level0",
+    "coingecko": "",
+    "api": [
+        {"provider": "level0", "address": "http://localhost:1318"}
+    ],
+    "rpc": [
+        {"provider": "level0", "address": "http://localhost:26658"}
+    ],
+    "snapshot_provider": "",
+    "sdk_version": "0.50.1",
+    "coin_type": "118",
+    "min_tx_fee": "10000000",
+    "keplr_price_step": {
+        "low": 1000,
+        "average": 1000,
+        "high": 10000
+    },
+    "addr_prefix": "level0",
+    "logo": "/logos/mythos.png",
+    "assets": [{
+        "base": "alvl0",
+        "symbol": "lvl",
+        "exponent": "18",
+        "coingecko_id": "",
+        "logo": "/logos/mythos.png"
+    }]
+}
